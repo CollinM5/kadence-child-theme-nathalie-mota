@@ -1,0 +1,7 @@
+#primary-menu a{
+    cursor: pointer;
+    user-select: none;
+    font-family: "spaceMono", sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+}

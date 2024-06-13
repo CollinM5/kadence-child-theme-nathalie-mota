@@ -6,3 +6,15 @@ Author URI: https://wpmarmite.com
 Template: kadence
 Version: 1.0
 */
+
+@font-face {
+    font-family: "Poppins";
+    src: url("./assets/fonts/Poppins-Medium.ttf") format("truetype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "SpaceMono";
+    src: url("./assets/fonts/SpaceMono-Regular.ttf") format("truetype");
+    font-weight: 400;
+}

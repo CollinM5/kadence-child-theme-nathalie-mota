@@ -1,0 +1,78 @@
+/* modal */
+
+.close{
+    display: none;
+}
+
+.open{
+    display: flex;
+}
+
+#modal-background{
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    z-index: 1000;
+}
+
+#contact-modal{
+    width: 600px;
+    border: 5px solid black;
+    background-color: white;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+/* titre */
+
+#title-image{
+    padding-top: 18px;
+    height: 107px;
+    width: 100%;
+    box-sizing: content-box;
+}
+
+#title-image div{
+    height: 50%;
+    background-image: url("../images/Contact.svg");
+    background-repeat: repeat no-repeat;
+    background-position-x: -100px;
+}
+
+#title-image > :first-child{
+    background-position-x: -140px;
+}
+
+/* formulaire */
+
+#contact-modal form{
+    max-width: 260px;
+    margin: auto;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+}
+
+#contact-modal input, #contact-modal textarea{
+    max-width: 260px;
+    border-radius: 8px;
+    border: 1px solid #B8BBC2;
+}
+
+#contact-modal textarea{
+    height: 210px;
+}
+
+#contact-modal input[type="submit"]{
+    background-color: #D8D8D8;
+    font-family: "SpaceMono", sans-serif;
+    height: 50px;
+    width: 100%;
+    border: 0px;
+    border-radius: 0px;
+    color: black;
+    font-size: 12px;
+}
