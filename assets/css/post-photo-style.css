@@ -1,0 +1,130 @@
+#main{
+    max-width: 1440px;
+    padding: 0 144px;
+    margin: auto;
+}
+
+
+/* ---------------------------------- POST ---------------------------------- */
+
+/* style du post en général */
+
+#post{
+    display: flex;
+    width: 100%;
+    margin-top: 38px;
+}
+
+#post-info, #post-image{
+    flex: 1;
+}
+
+/* style des infos du post */
+
+#post-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 20px;
+}
+
+#post-info h1{
+    font-family: "SpaceMono", sans-serif;
+    font-size: 66px;
+    font-style: italic;
+    text-transform: uppercase;
+    width: 420px;
+    line-height: 58px;
+    font-weight: 400;
+}
+
+#post-info ul{
+    text-transform: uppercase;
+    list-style: none !important;
+    margin: 0px !important;
+    padding-bottom: 38px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: "SpaceMono", sans-serif;
+    font-weight: 400;
+    border-bottom: 1px solid black;
+}
+
+/* style de la photo du post */
+
+#post-image img{
+    padding-left: 20px;
+}
+
+
+/* ---------------------------------- Contact et navigation ---------------------------------- */
+
+
+#contact-and-navigation{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 118px;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+}
+
+/* partie contact */
+
+#contact{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#contact button{
+    height: 50px;
+    width: 272px;
+    border-radius: 0px;
+    background-color: #d8d8d8;
+    color: black;
+    font-family: "spaceMono", sans-serif;
+    font-size: 12px;
+}
+
+#contact p{
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+
+/* partie navigation */
+
+#navigation{
+    padding-top: 8px;
+    width: 81px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#preview{
+    width: 81px;
+    height: 71px;
+    overflow: hidden;
+}
+
+#nav-arrow{
+    display: flex;
+    justify-content: space-between;
+}
+
+.arrow{
+    width: 25px;
+}
+
+
+
+
+
+
+
