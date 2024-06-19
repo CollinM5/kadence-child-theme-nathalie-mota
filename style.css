@@ -15,6 +15,12 @@ Version: 1.0
 
 @font-face {
     font-family: "Poppins";
+    src: url("./assets/fonts/Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Poppins";
     src: url("./assets/fonts/Poppins-Light.ttf") format("truetype");
     font-weight: 300;
 }
@@ -27,4 +33,12 @@ Version: 1.0
 
 body{
     background-color: white !important;
+}
+
+.displayNone{
+    display: none;
+}
+
+.display{
+    display: flex;
 }

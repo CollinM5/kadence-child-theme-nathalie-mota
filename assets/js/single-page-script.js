@@ -3,7 +3,12 @@
 const arrows = document.getElementsByClassName("arrow");
 const preview = document.getElementById("preview-image");
 
-preview.src = document.getElementById("next-post").dataset.image;
+if(document.getElementById("next-post") != undefined){
+    preview.src = document.getElementById("next-post").dataset.image;
+}else if(document.getElementById("previous-post") != undefined){
+    preview.src = document.getElementById("previous-post").dataset.image;
+}
+
 
 for (let index = 0; index < arrows.length; index++) {
     const element = arrows[index];
@@ -31,3 +36,4 @@ modalBackground.addEventListener("click", (e) => {
         }, "500");
     }
 })
+

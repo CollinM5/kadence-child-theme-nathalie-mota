@@ -52,14 +52,6 @@
 
 /* modal */
 
-.displayNone{
-    display: none;
-}
-
-.display{
-    display: flex;
-}
-
 #modal-background{
     justify-content: center;
     align-items: center;

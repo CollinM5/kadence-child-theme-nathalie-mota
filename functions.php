@@ -14,7 +14,10 @@ function wpchild_enqueue_styles(){
 
     // style et script du formulaire de contact
     wp_enqueue_style( 'contact-style', get_stylesheet_directory_uri() . '/assets/css/contact-style.css');
-    wp_enqueue_script('contact-script',  get_stylesheet_directory_uri().'/assets/js/contact-modal-script.js', array(), '1.0.0', array('strategy'  => 'defer'));
+    wp_enqueue_script('general-script',  get_stylesheet_directory_uri().'/assets/js/general-script.js', array(), '1.0.0', array('strategy'  => 'defer'));
+
+    // style des miniatures des photos
+    wp_enqueue_style( 'thumbnail-photo-style', get_stylesheet_directory_uri() . '/assets/css/thumbnail-photo-style.css');
 
     if(is_singular('photo')){
       	wp_enqueue_style( 'post-photo-style', get_stylesheet_directory_uri() . '/assets/css/post-photo-style.css');

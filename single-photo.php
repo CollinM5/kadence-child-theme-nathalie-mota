@@ -24,11 +24,41 @@ $year = get_the_date('Y');
 $previous_post = get_adjacent_post( false, '', true );
 $next_post = get_adjacent_post( false, '', false );
 
+
+// récupération de deux photos de la meme catégorie
+$categories = get_the_terms( get_the_ID(), 'categorie' );
+
+if ( $categories ) {
+    $category_ids = array();
+    foreach ( $categories as $category ) {
+        $category_ids[] = $category->term_id;
+    }
+
+	$args = array(
+		'post_type' => 'photo', // Assurez-vous de spécifier le type de contenu personnalisé
+        'post__not_in' => array( get_the_ID() ), // Exclure l'article actuel
+        'posts_per_page' => 2,
+        'orderby' => 'rand',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'categorie', // Nom de votre taxonomie personnalisée
+                'field' => 'term_id',
+                'terms' => $category_ids,
+            ),
+        ),
+	);
+	
+	$related_posts_query = new \WP_Query( $args );
+} 
+
+
+
+
 ?>
 
 <main id="main">
 
-	<div id="post">
+	<section id="post">
 		<div id="post-info">
 			<h1><?php echo get_the_title() ?></h1>
 			<ul>
@@ -43,9 +73,9 @@ $next_post = get_adjacent_post( false, '', false );
 		<div id="post-image">
 			<?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
 		</div>
-	</div>
+	</section>
 
-	<div id="contact-and-navigation">
+	<section id="contact-and-navigation">
 		<div id="contact">
 			<p>Cette photo vous intéresse ?</p>
 			<button id="btn-contact">Contact</button>
@@ -56,18 +86,46 @@ $next_post = get_adjacent_post( false, '', false );
 				<img src="" id="preview-image">
 			</div>
 			<div id="nav-arrow">
-				<a href="<?php echo get_permalink( $previous_post->ID ); ?>">
-					<img id="previous-post" class="arrow" data-image="<?php echo get_the_post_thumbnail_url( $previous_post->ID, 'thumbnail' ) ?>" src="<?php echo get_stylesheet_directory_uri().'/assets/images/arrowLeft.svg' ?>">
-				</a>
-				<a href="<?php echo get_permalink( $next_post->ID ); ?>">
-					<img id="next-post" class="arrow" data-image="<?php echo get_the_post_thumbnail_url( $next_post->ID, 'thumbnail' ) ?>" src="<?php echo get_stylesheet_directory_uri().'/assets/images/arrowRight.svg' ?>">
-				</a>
+				<?php 
+					if(isset($previous_post) && $previous_post != ""){
+						echo '<a href="'.get_permalink( $previous_post->ID ).'">';
+						echo '<img id="previous-post" class="arrow" data-image="'.get_the_post_thumbnail_url( $previous_post->ID, 'thumbnail' ) .'" src="'.get_stylesheet_directory_uri().'/assets/images/arrowLeft.svg">';
+						echo '</a>';
+					}else{
+						echo '<div></div>';
+					}
+					
+					if(isset($next_post) && $next_post != ""){
+						echo '<a href="'.get_permalink( $next_post->ID ).'">';
+						echo '<img id="next-post" class="arrow" data-image="'.get_the_post_thumbnail_url( $next_post->ID, 'thumbnail' ) .'" src="'.get_stylesheet_directory_uri().'/assets/images/arrowRight.svg">';
+						echo '</a>';
+					}
+				?>
 			</div>
 			<div></div>
 		</div>
-	</div>
+	</section>
 	
+	<?php 
+	if(isset($related_posts_query)){
+		if( $related_posts_query->have_posts() ){
+			echo '<section id="related-photos">';
+			echo '<h2>Vous aimerez aussi</h2>';
+			echo '<div class="post-thumbnail-row">';
 
+			$posts = $related_posts_query->get_posts();
+
+			foreach( $posts as $post ) {
+				setup_postdata( $post );
+				get_template_part( 'templates_part/template-image' );
+				wp_reset_postdata();
+			}
+
+			echo '</div>';
+			echo '</section>';
+		}
+	}
+	?>
 </main>
 
 <?php get_footer(); ?>

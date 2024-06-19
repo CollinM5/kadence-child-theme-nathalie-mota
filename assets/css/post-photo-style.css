@@ -53,8 +53,14 @@
 
 /* style de la photo du post */
 
+#post-image {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 #post-image img{
     padding-left: 20px;
+    align-self: flex-start; 
 }
 
 
@@ -122,7 +128,21 @@
     width: 25px;
 }
 
+/* vous aimerez aussi */
 
+#related-photos h2{
+    font-family: "spaceMono", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 50px;
+}
+
+#related-photos{
+    margin-top: 60px;
+    margin-bottom: 110px;
+}
 
 
 
