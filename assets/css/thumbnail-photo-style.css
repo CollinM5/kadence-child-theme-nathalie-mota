@@ -1,6 +1,7 @@
 .post-photo-thumbnail{
     position: relative;
     height: 100%;
+    max-width: 564px;
     flex: 1;
 }
 
