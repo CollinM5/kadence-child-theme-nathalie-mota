@@ -31,6 +31,14 @@ Version: 1.0
     font-weight: 400;
 }
 
+@font-face {
+    font-family: "SpaceMono";
+    src: url("./assets/fonts/SpaceMono-BoldItalic.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+}
+
+
 body{
     background-color: white !important;
 }

@@ -1,0 +1,24 @@
+#inner-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#hero{
+    width: 1440px;
+    height: 965px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+}
+
+#hero h1{
+    font-family: "spaceMono", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 96px;
+    color: rgba(0, 0, 0, 0);
+    -webkit-text-stroke: 3px white; /* Épaisseur et couleur de la bordure */
+            text-stroke: 3px white; /* Épaisseur et couleur de la bordure pour les navigateurs supportant la spécification future */
+}

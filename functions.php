@@ -19,6 +19,11 @@ function wpchild_enqueue_styles(){
     // style des miniatures des photos
     wp_enqueue_style( 'thumbnail-photo-style', get_stylesheet_directory_uri() . '/assets/css/thumbnail-photo-style.css');
 
+    if(is_page('accueil')){
+        wp_enqueue_style( 'home-style', get_stylesheet_directory_uri() . '/assets/css/home-style.css');
+        wp_enqueue_script('home-script',  get_stylesheet_directory_uri().'/assets/js/home-script.js', array(), '1.0.0', array('strategy'  => 'defer'));
+    }
+
     if(is_singular('photo')){
       	wp_enqueue_style( 'post-photo-style', get_stylesheet_directory_uri() . '/assets/css/post-photo-style.css');
       	wp_enqueue_script('single-page-script',  get_stylesheet_directory_uri().'/assets/js/single-page-script.js', array(), '1.0.0', array('strategy'  => 'defer'));

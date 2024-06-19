@@ -1,0 +1,1 @@
+document.getElementById("hero").style.backgroundImage = "url("+document.getElementById("hero").dataset.background+")";
