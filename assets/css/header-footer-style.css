@@ -9,3 +9,12 @@
 #masthead{
     box-shadow: 0px 4px 14px 10px rgba(0, 0, 0, 0.03);
 }
+
+
+@media screen and (max-width: 979px)  {
+    #footer-menu{
+        flex-direction: column !important;
+        margin: 35px 0;
+        gap: 25px;
+    }
+}

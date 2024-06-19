@@ -1,10 +1,15 @@
 const modalBackground = document.getElementById("modal-background");
-const contactLink = document.getElementById("menu-item-26");
+const contactLinks = document.getElementsByClassName("menu-item-26");
 
 
-contactLink.addEventListener("click", () => {
-    modalBackground.className = "open display";
-})
+for (let index = 0; index < contactLinks.length; index++) {
+    const contactLink = contactLinks[index];
+
+    contactLink.addEventListener("click", () => {
+        modalBackground.className = "open display";
+    })
+}
+
 
 modalBackground.addEventListener("click", (e) => {
     if(e.target.id == "modal-background"){

@@ -9,8 +9,8 @@ function wpchild_enqueue_styles(){
     // chargement du theme enfant
     wp_enqueue_style( 'wpm-kadence-style', get_stylesheet_directory_uri() . '/style.css' );
 
-    // style du header
-    wp_enqueue_style( 'header-style', get_stylesheet_directory_uri() . '/assets/css/header-style.css');
+    // style du header et du footer
+    wp_enqueue_style( 'header-footer-style', get_stylesheet_directory_uri() . '/assets/css/header-footer-style.css');
 
     // style et script du formulaire de contact
     wp_enqueue_style( 'contact-style', get_stylesheet_directory_uri() . '/assets/css/contact-style.css');

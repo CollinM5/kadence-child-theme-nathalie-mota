@@ -1,7 +1,8 @@
 .post-photo-thumbnail{
     position: relative;
     height: 100%;
-    max-width: 564px;
+    width: 564px;
+    height: 495px;
     flex: 1;
 }
 
@@ -24,7 +25,6 @@
 
 .post-thumbnail-row{
     display: flex;
-    height: 495px;
     gap: 20px;
     max-width: calc(564px * 2 + 20px);
     margin: auto;

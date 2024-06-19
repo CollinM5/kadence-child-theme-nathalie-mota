@@ -144,6 +144,90 @@
     margin-bottom: 110px;
 }
 
+@media screen and (max-width: 979px)  {
+
+    #post{
+        flex-direction: column-reverse;
+        padding: 0 55px;
+        
+    }
+
+    #post-image img {
+        padding-left: 0;
+    }
+
+    #post-info ul{
+        border-bottom: none;
+        gap: 15px;
+        
+    }
+
+    #post-info{
+        margin-top: 20px;
+    }
+
+    #post-info h1{
+        font-size: 46px;
+        line-height: 48px;
+        width: 100%;
+    }
+    
+    #main{
+        padding: 0;
+    }
+
+    #contact-and-navigation {
+        border-top: 1px solid black;
+        justify-content: center;
+        margin: 0;
+        height: auto;
+    }
+
+    #contact{
+        flex-direction: column;
+        align-items: start;
+        width: 100%;
+        padding: 24px 55px;
+        min-height: 133px;
+    }
+
+    #contact button {
+        width: 100%;
+    }
+
+    #contact p{
+        margin: 0;
+    }
+
+    #navigation{
+        display: none;
+    }
+
+    #related-photos{
+        padding-left: 30px;
+        padding-right: 30px;
+        margin: 24px 0;
+    }
+
+    #related-photos h2{
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .post-thumbnail-row{
+        flex-direction: column;
+    }
+
+    .post-photo-thumbnail{
+        width: 100%;
+        height: 280px;
+    }
+
+    .post-photo-thumbnail img{
+        height: 280px;
+    }
+}
+
 
 
 
