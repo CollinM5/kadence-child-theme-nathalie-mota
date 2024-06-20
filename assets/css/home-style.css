@@ -22,3 +22,21 @@
     -webkit-text-stroke: 3px white; /* Épaisseur et couleur de la bordure */
             text-stroke: 3px white; /* Épaisseur et couleur de la bordure pour les navigateurs supportant la spécification future */
 }
+
+
+
+/* galerie photo */
+
+#photos{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: calc(564px * 2 + 20px);
+    gap: 20px;
+    margin: 40px auto;
+    justify-content: center;
+
+}
+
+.post-photo-thumbnail{
+    flex: 0 0 calc(50% - 20px);
+}
