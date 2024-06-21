@@ -28,17 +28,27 @@ const miniatures = document.getElementsByClassName("post-photo-thumbnail");
 for (let index = 0; index < miniatures.length; index++) {
     const miniature = miniatures[index];
     
-    miniature.addEventListener("mouseover", () => {
-        let hoverImageElement = miniature.querySelector('.hover-image');
-        if(hoverImageElement){
-            hoverImageElement.className = "hover-image display"
-        }
-    })
+    miniature.addEventListener("mouseover", mouseOverPostThumbnail)
+    miniature.addEventListener("mouseout", mouseOutPostThumbnail)
+}
 
-    miniature.addEventListener("mouseout", () => {
-        let hoverImageElement = miniature.querySelector('.hover-image')
-        if(hoverImageElement){
-            hoverImageElement.className = "hover-image displayNone"
-        }
-    })
+
+function mouseOverPostThumbnail(e){
+   
+    let parent = e.target.closest('.post-photo-thumbnail');
+    let hoverImageElement = parent.querySelector('.hover-image');
+   
+    if(hoverImageElement){
+        hoverImageElement.className = "hover-image display"
+    }
+}
+
+function mouseOutPostThumbnail(e){
+    
+    let parent = e.target.closest('.post-photo-thumbnail');
+    let hoverImageElement = parent.querySelector('.hover-image');
+
+    if(hoverImageElement){
+        hoverImageElement.className = "hover-image displayNone"
+    }
 }

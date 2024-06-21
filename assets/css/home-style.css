@@ -40,3 +40,29 @@
 .post-photo-thumbnail{
     flex: 0 0 calc(50% - 20px);
 }
+
+.posts-load-button{
+    height: 50px;
+    width: 272px;
+    border-radius: 0px;
+    background-color: #d8d8d8;
+    color: black;
+    font-family: "spaceMono", sans-serif;
+    font-size: 12px;
+}
+
+.posts-load-button:focus {
+    background-color: #d8d8d8;
+    color: black;
+}
+
+.posts-load-button:hover{
+    background-color: #afafaf;
+    color: black;
+}
+
+#galerie-photo form{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}

@@ -75,8 +75,36 @@ get_header();
 		}
 		
 	?>
-		
 	</div>
+	<form 
+        action="<?php echo admin_url( 'admin-ajax.php' ); ?>" 
+        method="post" 
+        class="js-load-posts"
+		id="js-load-posts-form"
+    >
+        <input 
+            type="hidden" 
+            name="order" 
+            value="asc"
+        >
+		<input 
+            type="hidden" 
+            name="posts_per_page" 
+            value="8"
+        >
+        <input 
+            type="hidden" 
+            name="nonce" 
+            value="<?php echo wp_create_nonce( 'load_more_posts_nonce' ); ?>"
+        > 
+        <input
+            type="hidden"
+            name="action"   
+            value="load_more_posts"
+        >
+
+        <button class="posts-load-button">Charger plus</button>
+    </form>
 </section>
 
 
