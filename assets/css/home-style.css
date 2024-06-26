@@ -62,7 +62,29 @@
 }
 
 #galerie-photo form{
-    display: flex;
     justify-content: center;
     margin-bottom: 40px;
+}
+
+
+.sort-elements{
+    width: 260px;
+    height: 42px;
+    padding-left: 18px;
+    border-radius: 8px;
+    border: 1.3px solid rgba(184, 187, 194, 1);
+    font-family: "poppins", sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+#sort-posts-form{
+    justify-content:flex-start !important;
+    margin-top: 80px;
+    display: flex;
+    gap: 35px;
+}
+
+select[name="order"]{
+    margin-left: auto;
 }

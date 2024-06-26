@@ -1,0 +1,90 @@
+
+
+.lightbox{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 25px;
+}
+
+.lightbox__container img{
+    max-height: 80vh;
+    flex: 1;
+}
+
+.lightbox_main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.lightbox_main a{
+    cursor: pointer;
+    user-select: none;
+}
+
+.lightbox_main a:hover{
+    color: white;
+}
+
+
+.lightbox_main a img, .lightbox__close{
+    filter: invert(100%);
+}
+
+.lightbox__prev, .lightbox__next{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-wrap: nowrap;
+}
+
+.lightbox__close{
+    max-height: 25px;
+    cursor: pointer;
+    margin-right: 50px;
+}
+
+.lightbox__close__div{
+    height: 25px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: end;
+}
+
+.lightbox_info{
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media screen and (max-width: 900px)  {
+    .lightbox__nav__text{
+        display: none;
+    }
+
+    .lightbox__prev img, .lightbox__next img{
+        min-width: 16px;
+    }
+
+    .lightbox__close{
+        margin-right: 20px;
+    }
+   
+}

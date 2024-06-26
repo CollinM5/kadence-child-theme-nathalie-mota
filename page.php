@@ -44,7 +44,7 @@ if ( $query->have_posts() ) {
 $args = array(
 	'post_type' => 'photo', // Assurez-vous de spécifier le type de contenu personnalisé
 	'posts_per_page' => 8,
-	'orderby' => 'asc',
+	'orderby' => 'desc',
 );
 	
 $posts_query = new \WP_Query( $args );
@@ -63,7 +63,51 @@ get_header();
 </section>
 
 <section id="galerie-photo">
-	<div id="filtres"></div>
+	<div id="filtres">
+		<form 
+			action="<?php echo admin_url( 'admin-ajax.php' ); ?>" 
+			method="post" 
+			class="sort-posts"
+			id="sort-posts-form"
+		>
+			
+			<input 
+				type="hidden" 
+				name="posts_per_page" 
+				value="8"
+			>
+			<input 
+				type="hidden" 
+				name="nonce" 
+				value="<?php echo wp_create_nonce( 'sort_posts_nonce' ); ?>"
+			> 
+			<input
+				type="hidden"
+				name="action"   
+				value="sort_posts"
+			>
+
+			<select class="sort-elements" name="categories">
+				<option selected value="">Catégories</option>
+				<option value="reception">Réception</option>
+				<option value="mariage">Mariage</option>
+				<option value="concert">Concert</option>
+				<option value="television">Télévision</option>
+			</select>
+
+			<select class="sort-elements" name="formats">
+				<option selected value="">Formats</option>
+				<option value="paysage">paysage</option>
+				<option value="portrait">portrait</option>
+			</select>
+			
+			<select class="sort-elements" name="order">
+				<option selected value="">Trier par</option>
+				<option value="ASC">à partir des plus anciennes</option>
+				<option value="DESC"> à partir des plus récentes</option>
+			</select>
+		</form>
+	</div>
 	<div id="photos">
 	<?php
 
@@ -79,13 +123,13 @@ get_header();
 	<form 
         action="<?php echo admin_url( 'admin-ajax.php' ); ?>" 
         method="post" 
-        class="js-load-posts"
+        class="js-load-posts display"
 		id="js-load-posts-form"
     >
         <input 
             type="hidden" 
             name="order" 
-            value="asc"
+            value="desc"
         >
 		<input 
             type="hidden" 
