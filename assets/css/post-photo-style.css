@@ -227,7 +227,7 @@
         height: 280px;
     }
 
-    .post-photo-thumbnail img{
+    .post-photo-thumbnail > img{
         height: 280px;
     }
 }

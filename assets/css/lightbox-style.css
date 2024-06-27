@@ -75,6 +75,7 @@
 }
 
 @media screen and (max-width: 900px)  {
+    
     .lightbox__nav__text{
         display: none;
     }

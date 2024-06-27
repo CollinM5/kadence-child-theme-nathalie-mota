@@ -35,6 +35,10 @@ if ( $query->have_posts() ) {
 	// Sélectionne une image aléatoire
 	$random_image = $images[ array_rand( $images ) ];
 
+	while ($random_image === "http://nathalie-mota.local/wp-content/uploads/2024/06/Logo.svg"){
+		$random_image = $images[ array_rand( $images ) ];
+	}
+
 	// Retourne l'URL de l'image
 	$image_url = wp_get_attachment_url( $random_image->ID );
 }
