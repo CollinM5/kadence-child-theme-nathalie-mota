@@ -4,7 +4,7 @@ let post_in_page = 8;
 (function ($) {
     $(document).ready(function () {
 
-        // Chargement des commentaires en Ajax
+        // Charger plus de photo 
         $('.js-load-posts').submit(function (e) {
 
             // Empêcher l'envoi classique du formulaire
@@ -86,11 +86,12 @@ let post_in_page = 8;
 
         // ----------------------------- formulaire de tri ----------------------------- //
 
+        // envoie le formulaire au changement de valeur d un element
         $('.sort-elements').on('change', function() {
             $('.sort-posts').submit();
         });
 
-         // Chargement des commentaires en Ajax
+         // tri des photos en Ajax
          $('.sort-posts').submit(function (e) {
 
             // Empêcher l'envoi classique du formulaire

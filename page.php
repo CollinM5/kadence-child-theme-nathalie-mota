@@ -61,13 +61,14 @@ get_header();
 
 ?>
 
-
+<!-- hero de la page -->
 <section id="hero" data-background="<?php echo $image_url; ?>">
 	<h1>PHOTOGRAPHE EVENT</h1>
 </section>
 
 <section id="galerie-photo">
 	<div id="filtres">
+		<!-- formulaire pour trier les photos -->
 		<form 
 			action="<?php echo admin_url( 'admin-ajax.php' ); ?>" 
 			method="post" 
@@ -113,6 +114,7 @@ get_header();
 		</form>
 	</div>
 	<div id="photos">
+	<!-- la liste des photos -->
 	<?php
 
 		$posts = $posts_query->get_posts();
@@ -124,6 +126,7 @@ get_header();
 		
 	?>
 	</div>
+	<!-- formulaire pour charger plus de photo -->
 	<form 
         action="<?php echo admin_url( 'admin-ajax.php' ); ?>" 
         method="post" 
