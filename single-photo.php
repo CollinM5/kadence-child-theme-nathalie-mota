@@ -71,7 +71,9 @@ if ( $categories ) {
 		</div>
 
 		<div id="post-image">
-			<?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
+			<a href="<?php echo get_the_post_thumbnail_url(get_the_ID()) ?>" target="_blank">
+				<?php echo get_the_post_thumbnail( get_the_ID(), 'full' ); ?>
+			</a>
 		</div>
 	</section>
 
