@@ -56,9 +56,9 @@ let post_in_page = 8;
                     return;
                 }
 
-                if(body.data !== ''){
+                if(body.data.content !== ''){
                     // Et en cas de réussite
-                    $('#photos').append(body.data); // afficher le HTML
+                    $('#photos').append(body.data.content); // afficher le HTML
 
                     const miniatures = document.getElementsByClassName("post-photo-thumbnail");
                     fullscreenButtonInit();
@@ -74,6 +74,12 @@ let post_in_page = 8;
                     }
 
                     post_in_page += parseInt(data.posts_per_page); // Mettre à jour l'offset
+
+                    if(!body.data.has_more){
+                        document.getElementById("js-load-posts-form").className = "js-load-posts displayNone";
+                    }
+
+
                 }else{
                     document.getElementById("js-load-posts-form").className = "js-load-posts displayNone";
                 }
@@ -144,7 +150,7 @@ let post_in_page = 8;
 
                 if(body.data !== ''){
                     // Et en cas de réussite
-                    $('#photos').html(body.data); // afficher le HTML
+                    $('#photos').html(body.data.content); // afficher le HTML
 
                     const miniatures = document.getElementsByClassName("post-photo-thumbnail");
                     fullscreenButtonInit();
@@ -159,10 +165,16 @@ let post_in_page = 8;
                         miniature.addEventListener("mouseout", mouseOutPostThumbnail)
                     }
 
-                    document.getElementById("js-load-posts-form").className = "js-load-posts display";
+                    if(!body.data.has_more){
+                        document.getElementById("js-load-posts-form").className = "js-load-posts displayNone";
+                    }else{
+                        document.getElementById("js-load-posts-form").className = "js-load-posts display";
+                    }
+
                     post_in_page = 8; // Mettre à jour l'offset
                 }else{
                     document.getElementById("js-load-posts-form").className = "js-load-posts displayNone";
+                    $('#photos').html("Aucun résultat");
                 }
 
             })

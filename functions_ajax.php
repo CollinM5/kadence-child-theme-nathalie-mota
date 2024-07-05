@@ -1,5 +1,6 @@
 <?php
 
+// CHARGER PLUS DE POST ---------------------------------------------
 function load_more_posts() {
     // Vérifie les paramètres nécessaires
     if (!isset($_POST['posts_per_page']) || !isset($_POST['offset'])) {
@@ -18,7 +19,7 @@ function load_more_posts() {
 
     $args = array(
         'post_type' => 'photo', // Type de post personnalisé
-        'posts_per_page' => $posts_per_page,
+        'posts_per_page' => $posts_per_page + 1,
         'offset' => $offset,
         'order' => 'desc',
         'tax_query' => array(),
@@ -40,10 +41,19 @@ function load_more_posts() {
 
     ob_start();
 
+    $has_more = false;
+    $post_count = $query->post_count;
+
     if ($query->have_posts()) {
-        while ($query->have_posts()) {
+        $counter = 0;
+        while ($query->have_posts() && $counter < $posts_per_page) {
             $query->the_post();
             get_template_part('templates_part/template-image');
+            $counter++;
+        }
+
+        if ($post_count > $posts_per_page) {
+            $has_more = true;
         }
 
         wp_reset_postdata();
@@ -52,7 +62,7 @@ function load_more_posts() {
         if (empty($content)) {
             wp_send_json_error('Template part is empty');
         } else {
-            wp_send_json_success($content);
+            wp_send_json_success(array('content' => $content, 'has_more' => $has_more));
         }
        
 
@@ -66,6 +76,7 @@ add_action('wp_ajax_load_more_posts', 'load_more_posts');
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
 
 
+// TRIER LES POSTS ---------------------------------------------
 function sort_posts() {
     // Vérifie les paramètres nécessaires
     if (!isset($_POST['posts_per_page'])) {
@@ -83,7 +94,7 @@ function sort_posts() {
 
     $args = array(
         'post_type' => 'photo', // Type de post personnalisé
-        'posts_per_page' => $posts_per_page,
+        'posts_per_page' => $posts_per_page  + 1,
         'order' => 'ASC',
         'tax_query' => array(),
     );
@@ -104,10 +115,19 @@ function sort_posts() {
 
     ob_start();
 
+    $has_more = false;
+    $post_count = $query->post_count;
+
     if ($query->have_posts()) {
-        while ($query->have_posts()) {
+        $counter = 0;
+        while ($query->have_posts() && $counter < $posts_per_page) {
             $query->the_post();
             get_template_part('templates_part/template-image');
+            $counter++;
+        }
+
+        if ($post_count > $posts_per_page) {
+            $has_more = true;
         }
 
         wp_reset_postdata();
@@ -116,7 +136,7 @@ function sort_posts() {
         if (empty($content)) {
             wp_send_json_error('Template part is empty');
         } else {
-            wp_send_json_success($content);
+            wp_send_json_success(array('content' => $content, 'has_more' => $has_more));
         }
        
 
