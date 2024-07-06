@@ -22,12 +22,12 @@ let post_in_page = 8;
                 offset: post_in_page,
             }
 
-            if($('select[name="categories"]').val() !== ""){
-                data.categories = $('select[name="categories"]').val();
+            if($('select[name="categorie"]').val() !== ""){
+                data.categories = $('select[name="categorie"]').val();
             }
 
-            if($('select[name="formats"]').val() !== ""){
-                data.formats = $('select[name="formats"]').val();
+            if($('select[name="format"]').val() !== ""){
+                data.formats = $('select[name="format"]').val();
             }
 
             if($('select[name="order"]').val() !== ""){
@@ -114,12 +114,12 @@ let post_in_page = 8;
                 posts_per_page: $(this).find('input[name=posts_per_page]').val(),
             }
 
-            if($('select[name="categories"]').val() !== ""){
-                data.categories = $('select[name="categories"]').val();
+            if($('select[name="categorie"]').val() !== ""){
+                data.categories = $('select[name="categorie"]').val();
             }
 
-            if($('select[name="formats"]').val() !== ""){
-                data.formats = $('select[name="formats"]').val();
+            if($('select[name="format"]').val() !== ""){
+                data.formats = $('select[name="format"]').val();
             }
 
             if($('select[name="order"]').val() !== ""){

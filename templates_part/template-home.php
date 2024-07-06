@@ -40,6 +40,33 @@ $args = array(
 	
 $posts_query = new \WP_Query( $args );
 
+
+// ----------------- taxonomie 
+
+function display_taxonomie_select($taxonomy) {
+    $terms = get_terms(array(
+        'taxonomy' => $taxonomy,
+        'hide_empty' => false,
+    ));
+
+    $taxonomy_obj = get_taxonomy($taxonomy);
+    $taxonomy_label = $taxonomy_obj->labels->singular_name;
+
+    echo '<select class="sort-elements" name="' . esc_attr($taxonomy) . '">';
+    echo '<option selected value="">' . esc_html($taxonomy_label) . '</option>';
+
+    if (!empty($terms) && !is_wp_error($terms)) {
+        foreach ($terms as $term) {
+            echo '<option value="' . esc_attr($term->slug) . '">' . esc_html($term->name) . '</option>';
+        }
+    } else {
+        echo '<option value="">Aucun terme trouvé</option>';
+    }
+
+    echo '</select>';
+}
+
+
 ?>
 
 <!-- hero de la page -->
@@ -73,19 +100,12 @@ $posts_query = new \WP_Query( $args );
 				value="sort_posts"
 			>
 
-			<select class="sort-elements" name="categories">
-				<option selected value="">Catégories</option>
-				<option value="reception">Réception</option>
-				<option value="mariage">Mariage</option>
-				<option value="concert">Concert</option>
-				<option value="television">Télévision</option>
-			</select>
+			<?php 
 
-			<select class="sort-elements" name="formats">
-				<option selected value="">Formats</option>
-				<option value="paysage">paysage</option>
-				<option value="portrait">portrait</option>
-			</select>
+			display_taxonomie_select('categorie'); 
+			display_taxonomie_select('format'); 
+
+			?>
 			
 			<select class="sort-elements" name="order">
 				<option selected value="">Trier par</option>

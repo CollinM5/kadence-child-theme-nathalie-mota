@@ -1,3 +1,5 @@
+// modal contact
+
 const modalBackground = document.getElementById("modal-background");
 const contactLinks = document.getElementsByClassName("menu-item-26");
 
